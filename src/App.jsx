@@ -21,12 +21,11 @@ function App() {
           isActive: false,
         };
       });
-    console.log(productId);
-    console.log(selectedProduct);
-    console.log("unselected", unSelectedProduct);
-    setProducts(() => {
-      return [...unSelectedProduct, selectedProduct];
-    });
+    const newProducts = [...unSelectedProduct, selectedProduct].sort(
+      a,
+      (b) => a.id - b.id
+    );
+    setProducts(newProducts);
   }
   return (
     <>
